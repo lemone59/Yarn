@@ -20,6 +20,9 @@ def genesent(sent):
 
     elif sent == 6: # TYPE 6 // I + AM + VERB + CONJUNCTION + I + AM + ADJECTIVE
         return f"{random.choice(talking)} {random.choice(verbs2)} {random.choice(verbs)} {random.choice(conjunctions)} I {random.choice(verbs2)} {random.choice(adjectives)}"
+    
+    elif sent == 7: # TYPE 7 // NOUN + IS VERY + ADJECTIVE:
+        return f"{random.choice(nouns)} is very {random.choice(adjective)}"
 
 
 def fusesent(sent1, sent2):
@@ -30,8 +33,13 @@ def fusesent(sent1, sent2):
 
 def writeparagraph(sentences=[]):
     paragraph = []
+
     for i in range(len(sentences)):
         paragraph.append(fusesent(sentences[i], sentences[i - i]))
+        
+        if random.randint(1,3) == 3:
+            paragraph.append('.')
+        
     return ''.join(paragraph)
 
 
